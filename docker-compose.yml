@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  geth:
+    build: .
+    ports:
+      - "8551:8551"
+      - "8545:8545"
+    command:
+      - ./geth
+      - --eip4844
+      - --config=./geth_static_nodes.toml
+      - --http
+      - --http.port=8545
+      - --http.addr=0.0.0.0
+      - --http.vhosts=*
+      - --http.api=engine,eth
+      - --authrpc.port=8551
+  prysm:
+    build: .
+    ports:
+      - "3500:3500"
+      - "4000:4000"
+    depends_on:
+      - geth
+    command:
+      - ./beacon-chain
+      - --eip4844
+      - --accept-terms-of-use
+      - --genesis-state=./genesis.ssz
+      - --subscribe-all-subnets
+      - --min-sync-peers=1
+      - --http-web3provider=http://geth:8545
