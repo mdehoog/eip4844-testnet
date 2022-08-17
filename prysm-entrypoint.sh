@@ -8,6 +8,6 @@ echo "Host IP: $PUBLIC_IP"
 --genesis-state=./genesis.ssz \
 --subscribe-all-subnets \
 --min-sync-peers=1 \
---http-web3provider=http://geth:8545 \
+--http-web3provider=$HTTP_WEB3PROVIDER \
 --p2p-host-ip=$PUBLIC_IP
 # - --verbosity=debug

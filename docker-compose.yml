@@ -6,6 +6,7 @@ services:
     ports:
       - "8551:8551"
       - "8545:8545"
+      - "30303:30303"
     command:
       - ./geth-entrypoint.sh
   prysm:
@@ -15,6 +16,8 @@ services:
       - "4000:4000"
       - "12000:12000"
       - "13000:13000"
+    environment:
+      - HTTP_WEB3PROVIDER=http://geth:8545
     depends_on:
       - geth
     command:
