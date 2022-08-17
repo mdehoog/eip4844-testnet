@@ -2,7 +2,7 @@ FROM golang:1.18
 
 ENV REPO=https://github.com/mdehoog/go-ethereum.git
 ENV BRANCH=eip-4844
-ENV COMMIT=769f14885dfc0417b55ed531c5ec4d936dcbde99
+ENV COMMIT=d704423d5e8cf4d0f12529b9ca0ddbb65b671e1b
 
 RUN mkdir -p /app
 WORKDIR /app
@@ -27,6 +27,8 @@ RUN go build -o bin/beacon-chain ./cmd/beacon-chain
 
 
 FROM golang:1.18
+
+RUN apt-get update && apt-get install -y curl
 
 RUN mkdir -p /app
 WORKDIR /app
