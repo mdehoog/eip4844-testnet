@@ -1,8 +1,7 @@
 FROM golang:1.18
 
 ENV REPO=https://github.com/mdehoog/go-ethereum.git
-ENV BRANCH=eip-4844
-ENV COMMIT=d704423d5e8cf4d0f12529b9ca0ddbb65b671e1b
+ENV COMMIT=889e8568df528cb786ce85ec9396f15563efca63
 
 RUN mkdir -p /app
 WORKDIR /app
@@ -21,8 +20,7 @@ RUN mkdir -p /app
 WORKDIR /app
 
 ENV REPO=https://github.com/Inphi/prysm.git
-ENV BRANCH=inphi/clean-slate
-ENV COMMIT=b34d8afa1c892af894b60e1753a968a2c82e1a89
+ENV COMMIT=00570ceb19f727bc8f6103a733e40bfb115db5aa
 
 RUN git init
 RUN git remote add origin $REPO
