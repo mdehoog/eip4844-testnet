@@ -7,3 +7,10 @@ See https://hackmd.io/@inphi/SJKLtgJXs for more info.
 ```bash
 docker-compose up
 ```
+
+### Clean and rebuild
+
+```bash
+docker-compose down -v
+docker-compose build
+```
