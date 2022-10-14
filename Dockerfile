@@ -20,7 +20,7 @@ RUN mkdir -p /app
 WORKDIR /app
 
 ENV REPO=https://github.com/Inphi/prysm.git
-ENV COMMIT=00570ceb19f727bc8f6103a733e40bfb115db5aa
+ENV COMMIT=431ed6bc39e3d471474505bbec7b7486ffe4e183
 
 RUN git init
 RUN git remote add origin $REPO
